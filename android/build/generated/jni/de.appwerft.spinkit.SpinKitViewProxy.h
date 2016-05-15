@@ -14,7 +14,7 @@
 		namespace de {
 		namespace appwerft {
 		namespace spinkit {
-			namespace spin {
+			namespace spinkit {
 
 
 class SpinKitViewProxy : public titanium::Proxy
@@ -41,7 +41,7 @@ private:
 
 };
 
-			} // namespace spin
+			} // namespace spinkit
 		} // spinkit
 		} // appwerft
 		} // de

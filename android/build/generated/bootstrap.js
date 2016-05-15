@@ -24,7 +24,8 @@ function moduleBootstrap(moduleBinding) {
 		invocationAPIs.push({ namespace: namespace, api: api });
 	}
 
-		addInvocationAPI(module, "Spin", "Spin", "createExample");
+		addInvocationAPI(module, "Spin", "SpinKit", "createSpinKitView");
+	addInvocationAPI(module, "Spin", "Spin", "createExample");
 	addInvocationAPI(module, "Spin", "Spin", "createSpinKitView");
 
 			if (!("__propertiesDefined__" in module)) {		
@@ -32,14 +33,23 @@ function moduleBootstrap(moduleBinding) {
 			"SpinKit": {
 				get: function() {
 					var SpinKit = lazyGet(this, "de.appwerft.spinkit.SpinKitModule", "SpinKit", "SpinKit");
+					if (!("__propertiesDefined__" in SpinKit)) {		
+					Object.defineProperties(SpinKit, {
+						"SpinKitView": {
+							get: function() {
+								var SpinKitView = lazyGet(this, "de.appwerft.spinkit.SpinKitViewProxy", "SpinKitView", "SpinKit.SpinKitView");
+								return SpinKitView;
+							},
+							configurable: true
+						},
+					
+					});
+					SpinKit.constructor.prototype.createSpinKitView = function() {
+						return new SpinKit.SpinKitView(arguments);
+					}
+					}
+					SpinKit.__propertiesDefined__ = true;
 					return SpinKit;
-				},
-				configurable: true
-			},
-			"SpinKitView": {
-				get: function() {
-					var SpinKitView = lazyGet(this, "de.appwerft.spinkit.SpinKitViewProxy", "SpinKitView", "SpinKitView");
-					return SpinKitView;
 				},
 				configurable: true
 			},

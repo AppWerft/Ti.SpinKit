@@ -28,7 +28,7 @@ using namespace v8;
 		namespace de {
 		namespace appwerft {
 		namespace spinkit {
-			namespace spin {
+			namespace spinkit {
 
 
 Persistent<FunctionTemplate> SpinKitViewProxy::proxyTemplate = Persistent<FunctionTemplate>();
@@ -415,7 +415,7 @@ void SpinKitViewProxy::setter_message(Local<String> property, Local<Value> value
 
 
 
-			} // namespace spin
+			} // namespace spinkit
 		} // spinkit
 		} // appwerft
 		} // de

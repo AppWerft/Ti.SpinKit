@@ -9,23 +9,26 @@
 package de.appwerft.spinkit;
 
 import org.appcelerator.kroll.KrollDict;
+
+import android.graphics.Color;
+
 //import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
-import org.appcelerator.titanium.TiC;
-import org.appcelerator.kroll.common.Log;
-import org.appcelerator.titanium.util.TiConvert;
 import org.appcelerator.titanium.proxy.TiViewProxy;
-import org.appcelerator.titanium.view.TiCompositeLayout;
-import org.appcelerator.titanium.view.TiCompositeLayout.LayoutArrangement;
 import org.appcelerator.titanium.view.TiUIView;
 
+
 import android.app.Activity;
+
+
 
 // This proxy can be created by calling Spin.createExample({message: "hello world"})
 @Kroll.proxy(creatableInModule = SpinKitModule.class)
 public class SpinKitViewProxy extends TiViewProxy {
 	// Standard Debugging variables
-	private static final String LCAT = "SpinKit";
+	public int spinnerType = 0 ;
+	public int spinnerColor = Color.parseColor("#ffffff");
+	private TiSpinKitView mView; // instance of TiUIView
 
 	// Constructor
 	public SpinKitViewProxy() {
@@ -34,42 +37,22 @@ public class SpinKitViewProxy extends TiViewProxy {
 
 	@Override
 	public TiUIView createView(Activity activity) {
-		TiUIView view = new SpinKitView(this);
-		view.getLayoutParams().autoFillsHeight = true;
-		view.getLayoutParams().autoFillsWidth = true;
-		return view;
+		mView = new TiSpinKitView(this);
+		mView.getLayoutParams().autoFillsHeight = true;
+		mView.getLayoutParams().autoFillsWidth = true;
+		return mView;
 	}
 
-	// Handle creation options
 	@Override
 	public void handleCreationDict(KrollDict options) {
 		super.handleCreationDict(options);
-
 		if (options.containsKey("type")) {
-			Log.d(LCAT,
-					"example created with message: " + options.get("type"));
+			spinnerType = options.getInt("type");
 		}
 		if (options.containsKey("color")) {
-			Log.d(LCAT,
-					"example created with message: " + options.get("color"));
+			spinnerColor = Color.parseColor(options.getString("color"));
 		}
-	}
+		mView.addSpinner(spinnerType,spinnerColor);
 
-	// Methods
-	@Kroll.method
-	public void printMessage(String message) {
-		Log.d(LCAT, "printing message: " + message);
-	}
-
-	@Kroll.getProperty
-	@Kroll.method
-	public String getMessage() {
-		return "Hello World from my module";
-	}
-
-	@Kroll.setProperty
-	@Kroll.method
-	public void setMessage(String message) {
-		Log.d(LCAT, "Tried setting module message to: " + message);
 	}
 }

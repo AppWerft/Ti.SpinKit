@@ -20,6 +20,7 @@
 
 
 
+#include "de.appwerft.spinkit.SpinKitViewProxy.h"
 
 #include "org.appcelerator.kroll.KrollModule.h"
 

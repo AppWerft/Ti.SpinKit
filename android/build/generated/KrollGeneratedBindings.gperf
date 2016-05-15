@@ -18,5 +18,5 @@ struct titanium::bindings::BindEntry;
 de.appwerft.spinkit.SpinModule, ::de::appwerft::spinkit::SpinModule::bindProxy, ::de::appwerft::spinkit::SpinModule::dispose
 de.appwerft.spinkit.ExampleProxy, ::de::appwerft::spinkit::spin::ExampleProxy::bindProxy, ::de::appwerft::spinkit::spin::ExampleProxy::dispose
 de.appwerft.spinkit.SpinKitModule, ::de::appwerft::spinkit::SpinKitModule::bindProxy, ::de::appwerft::spinkit::SpinKitModule::dispose
-de.appwerft.spinkit.SpinKitViewProxy, ::de::appwerft::spinkit::spin::SpinKitViewProxy::bindProxy, ::de::appwerft::spinkit::spin::SpinKitViewProxy::dispose
+de.appwerft.spinkit.SpinKitViewProxy, ::de::appwerft::spinkit::spinkit::SpinKitViewProxy::bindProxy, ::de::appwerft::spinkit::spinkit::SpinKitViewProxy::dispose
 %%
