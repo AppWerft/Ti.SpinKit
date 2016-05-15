@@ -7,7 +7,7 @@
 
 /** This code is generated, do not edit by hand. **/
 
-#include "de.appwerft.spinkit.SpinModule.h"
+#include "de.appwerft.spinkit.SpinKitModule.h"
 
 #include "AndroidUtil.h"
 #include "EventEmitter.h"
@@ -20,12 +20,10 @@
 
 
 
-#include "de.appwerft.spinkit.ExampleProxy.h"
-#include "de.appwerft.spinkit.SpinKitViewProxy.h"
 
 #include "org.appcelerator.kroll.KrollModule.h"
 
-#define TAG "SpinModule"
+#define TAG "SpinKitModule"
 
 using namespace v8;
 
@@ -34,28 +32,28 @@ using namespace v8;
 		namespace spinkit {
 
 
-Persistent<FunctionTemplate> SpinModule::proxyTemplate = Persistent<FunctionTemplate>();
-jclass SpinModule::javaClass = NULL;
+Persistent<FunctionTemplate> SpinKitModule::proxyTemplate = Persistent<FunctionTemplate>();
+jclass SpinKitModule::javaClass = NULL;
 
-SpinModule::SpinModule(jobject javaObject) : titanium::Proxy(javaObject)
+SpinKitModule::SpinKitModule(jobject javaObject) : titanium::Proxy(javaObject)
 {
 }
 
-void SpinModule::bindProxy(Handle<Object> exports)
+void SpinKitModule::bindProxy(Handle<Object> exports)
 {
 	if (proxyTemplate.IsEmpty()) {
 		getProxyTemplate();
 	}
 
 	// use symbol over string for efficiency
-	Handle<String> nameSymbol = String::NewSymbol("Spin");
+	Handle<String> nameSymbol = String::NewSymbol("SpinKit");
 
 	Local<Function> proxyConstructor = proxyTemplate->GetFunction();
 	Local<Object> moduleInstance = proxyConstructor->NewInstance();
 	exports->Set(nameSymbol, moduleInstance);
 }
 
-void SpinModule::dispose()
+void SpinKitModule::dispose()
 {
 	LOGD(TAG, "dispose()");
 	if (!proxyTemplate.IsEmpty()) {
@@ -66,7 +64,7 @@ void SpinModule::dispose()
 	titanium::KrollModule::dispose();
 }
 
-Handle<FunctionTemplate> SpinModule::getProxyTemplate()
+Handle<FunctionTemplate> SpinKitModule::getProxyTemplate()
 {
 	if (!proxyTemplate.IsEmpty()) {
 		return proxyTemplate;
@@ -74,11 +72,11 @@ Handle<FunctionTemplate> SpinModule::getProxyTemplate()
 
 	LOGD(TAG, "GetProxyTemplate");
 
-	javaClass = titanium::JNIUtil::findClass("de/appwerft/spinkit/SpinModule");
+	javaClass = titanium::JNIUtil::findClass("de/appwerft/spinkit/SpinKitModule");
 	HandleScope scope;
 
 	// use symbol over string for efficiency
-	Handle<String> nameSymbol = String::NewSymbol("Spin");
+	Handle<String> nameSymbol = String::NewSymbol("SpinKit");
 
 	Handle<FunctionTemplate> t = titanium::Proxy::inheritProxyTemplate(
 		titanium::KrollModule::getProxyTemplate()
@@ -86,7 +84,7 @@ Handle<FunctionTemplate> SpinModule::getProxyTemplate()
 
 	proxyTemplate = Persistent<FunctionTemplate>::New(t);
 	proxyTemplate->Set(titanium::Proxy::inheritSymbol,
-		FunctionTemplate::New(titanium::Proxy::inherit<SpinModule>)->GetFunction());
+		FunctionTemplate::New(titanium::Proxy::inherit<SpinKitModule>)->GetFunction());
 
 	titanium::ProxyFactory::registerProxyPair(javaClass, *proxyTemplate);
 
@@ -102,7 +100,7 @@ Handle<FunctionTemplate> SpinModule::getProxyTemplate()
 	// Constants --------------------------------------------------------------
 	JNIEnv *env = titanium::JNIScope::getEnv();
 	if (!env) {
-		LOGE(TAG, "Failed to get environment in SpinModule");
+		LOGE(TAG, "Failed to get environment in SpinKitModule");
 		//return;
 	}
 
