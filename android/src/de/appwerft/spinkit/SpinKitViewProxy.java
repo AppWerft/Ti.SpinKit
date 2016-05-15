@@ -22,34 +22,10 @@ import org.appcelerator.titanium.view.TiUIView;
 import android.app.Activity;
 
 // This proxy can be created by calling Spin.createExample({message: "hello world"})
-@Kroll.proxy(creatableInModule = SpinModule.class)
+@Kroll.proxy(creatableInModule = SpinKitModule.class)
 public class SpinKitViewProxy extends TiViewProxy {
 	// Standard Debugging variables
 	private static final String LCAT = "SpinKit";
-
-	private class SpinKitView extends TiUIView {
-		public SpinKitView(TiViewProxy proxy) {
-			super(proxy);
-			LayoutArrangement arrangement = LayoutArrangement.DEFAULT;
-
-			if (proxy.hasProperty(TiC.PROPERTY_LAYOUT)) {
-				String layoutProperty = TiConvert.toString(proxy
-						.getProperty(TiC.PROPERTY_LAYOUT));
-				if (layoutProperty.equals(TiC.LAYOUT_HORIZONTAL)) {
-					arrangement = LayoutArrangement.HORIZONTAL;
-				} else if (layoutProperty.equals(TiC.LAYOUT_VERTICAL)) {
-					arrangement = LayoutArrangement.VERTICAL;
-				}
-			}
-			setNativeView(new TiCompositeLayout(proxy.getActivity(),
-					arrangement));
-		}
-
-		@Override
-		public void processProperties(KrollDict d) {
-			super.processProperties(d);
-		}
-	}
 
 	// Constructor
 	public SpinKitViewProxy() {
