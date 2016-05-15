@@ -14,8 +14,8 @@ import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
 import org.appcelerator.kroll.common.Log;
 
-@Kroll.module(name = "Spin", id = "de.appwerft.spinkit")
-public class SpinModule extends KrollModule {
+@Kroll.module(name = "SpinKit", id = "de.appwerft.spinkit")
+public class SpinKitModule extends KrollModule {
 
 	// Standard Debugging variables
 	private static final String LCAT = "SpinModule";
@@ -30,7 +30,7 @@ public class SpinModule extends KrollModule {
 	public static final int TYPE_CHASINGDOTS = 5;
 	
 
-	public SpinModule() {
+	public SpinKitModule() {
 		super();
 	}
 
