@@ -1,5 +1,7 @@
 package com.github.ybq.android.spinkit;
 
+import org.appcelerator.titanium.TiApplication;
+
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -46,7 +48,8 @@ public class SpinKitView extends ProgressBar {
 	public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr,
 			int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
-		int s[] = { RHelper.getResource("styleable", "SpinKitView") }; // this will not found
+		
+		int s[] =  RHelper.getResourceDeclareStyleableIntArray(context,"SpinKitView") ; // this will not found
 		TypedArray a = context.obtainStyledAttributes(attrs, s, defStyleAttr,
 				defStyleRes);
 		mStyle = Style.values()[a.getInt(
