@@ -1,7 +1,7 @@
 Ti.SpinKit
 ==========
 
-This is the Titanium version of [Spinkit](https://github.com/ybq/Android-SpinKit). 
+This is the Titanium version of [Spinkit](https://github.com/ybq/Android-SpinKit). Thanks to Yang Bing Qaing
 
 ![](https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen.gif)
 
@@ -14,8 +14,6 @@ var SKV = require('ti.appwerft.spinkit');
 var spinkitView = SKV.createSpinKitView({
     type : SKV.TYPE_ROTATINGPLANE,
     color : '#ffffff',
-    width:100,
-    height:100
 });
 ~~~
 
