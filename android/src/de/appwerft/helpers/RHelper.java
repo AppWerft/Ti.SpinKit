@@ -14,6 +14,15 @@ public class RHelper {
 		}
 	}
 	
+  public static int getStyleable(String str){
+		try {
+			return TiRHelper.getApplicationResource("stylable."+str);
+		} catch (ResourceNotFoundException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+  
 	public static int getLayout(String str){
 		try {
 			return TiRHelper.getApplicationResource("layout."+str);

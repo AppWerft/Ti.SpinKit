@@ -18,96 +18,111 @@ import com.github.ybq.android.spinkit.sprite.Sprite;
  */
 public class SpinKitView extends ProgressBar {
 
-    private Style mStyle;
-    private int mColor;
-    private Sprite mSprite;
+	private Style mStyle;
+	private int mColor;
+	private Sprite mSprite;
 
-    public SpinKitView(Context context) {
-        this(context, null);
-    }
+	public SpinKitView(Context context) {
+		this(context, null);
+	}
 
-    public SpinKitView(Context context, AttributeSet attrs) {
-        //this(context, attrs, R.attr.SpinKitViewStyle);
-        this(context, attrs, RHelper.getString("attr.SpinKitViewStyle"));
-    }
+	public SpinKitView(Context context, AttributeSet attrs) {
+		// original version
+		// this(context, attrs, R.attr.SpinKitViewStyle);
+		// Titanium implementation:
+		this(context, attrs, RHelper.getString("attr.SpinKitViewStyle"));
+	}
 
-    public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr) {
-//      this(context, attrs, defStyleAttr, R.style.SpinKitView);
-        this(context, attrs, defStyleAttr, RHelper.getString("style.SpinKitView"));
-    }
+	public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr) {
+		// original version :
+		// this(context, attrs, defStyleAttr, R.style.SpinKitView);
+		// Titanium implementation:
+		this(context, attrs, defStyleAttr, RHelper
+				.getString("style.SpinKitView"));
+	}
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-       
-       // TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SpinKitView, defStyleAttr,
-        //        defStyleRes);
-     /*   TypedArray a = context.obtainStyledAttributes(attrs, RHelper.getString("styleable.SpinKitView"), defStyleAttr,
-                defStyleRes);
-       
-        mStyle = Style.values()[a.getInt(R.styleable.SpinKitView_SpinKit_Style, 0)];
-        mColor = a.getColor(R.styleable.SpinKitView_SpinKit_Color, Color.WHITE);
-        a.recycle();*/
-        init();
-        setIndeterminate(true);
-    }
+	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+	public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr,
+			int defStyleRes) {
+		super(context, attrs, defStyleAttr, defStyleRes);
+		// original version
+		// TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SpinKitView, defStyleAttr, defStyleRes);
+		// Titanium implementation:
+		int s[] = { RHelper.getStyleable("SpinKitView") };
+		TypedArray a = context.obtainStyledAttributes(attrs, s, defStyleAttr,
+				defStyleRes);
+		// mStyle = Style.values()[a.getInt(R.styleable.SpinKitView_SpinKit_Style, 0)];
+	
+		// Titanium implementation:
+		mStyle = Style.values()[a.getInt( RHelper.getStyleable("SpinKitView_SpinKit_Style"),0)];
+		
+		// original version:
+		//mColor = a.getColor(R.styleable.SpinKitView_SpinKit_Color, Color.WHITE);
 
-    private void init() {
-        Sprite sprite = SpriteFactory.create(mStyle);
-        setIndeterminateDrawable(sprite);
-    }
+		// Titanium implementation:
+		mColor = a.getColor(RHelper.getStyleable("SpinKitView_SpinKit_Color"), Color.WHITE);
+		a.recycle();
+		init();
+		setIndeterminate(true);
+	}
 
-    @Override
-    public void setIndeterminateDrawable(Drawable d) {
-        if (!(d instanceof Sprite)) {
-            throw new IllegalArgumentException("this d must be instanceof Sprite");
-        }
-        setIndeterminateDrawable((Sprite) d);
-    }
+	private void init() {
+		Sprite sprite = SpriteFactory.create(mStyle);
+		setIndeterminateDrawable(sprite);
+	}
 
-    public void setIndeterminateDrawable(Sprite d) {
-        super.setIndeterminateDrawable(d);
-        mSprite = d;
-        if (mSprite.getColor() == 0) {
-            mSprite.setColor(mColor);
-        }
-        onSizeChanged(getWidth(), getHeight(), getWidth(), getHeight());
-        if (getVisibility() == VISIBLE) {
-            mSprite.start();
-        }
-    }
+	@Override
+	public void setIndeterminateDrawable(Drawable d) {
+		if (!(d instanceof Sprite)) {
+			throw new IllegalArgumentException(
+					"this d must be instanceof Sprite");
+		}
+		setIndeterminateDrawable((Sprite) d);
+	}
 
-    @Override
-    public Sprite getIndeterminateDrawable() {
-        return mSprite;
-    }
+	public void setIndeterminateDrawable(Sprite d) {
+		super.setIndeterminateDrawable(d);
+		mSprite = d;
+		if (mSprite.getColor() == 0) {
+			mSprite.setColor(mColor);
+		}
+		onSizeChanged(getWidth(), getHeight(), getWidth(), getHeight());
+		if (getVisibility() == VISIBLE) {
+			mSprite.start();
+		}
+	}
 
-    @Override
-    public void unscheduleDrawable(Drawable who) {
-        super.unscheduleDrawable(who);
-        if (who instanceof Sprite) {
-            ((Sprite) who).stop();
-        }
-    }
+	@Override
+	public Sprite getIndeterminateDrawable() {
+		return mSprite;
+	}
 
-    @Override
-    public void onWindowFocusChanged(boolean hasWindowFocus) {
-        super.onWindowFocusChanged(hasWindowFocus);
-        if (hasWindowFocus) {
-            if (mSprite != null && getVisibility() == VISIBLE) {
-                mSprite.start();
-            }
-        }
-    }
+	@Override
+	public void unscheduleDrawable(Drawable who) {
+		super.unscheduleDrawable(who);
+		if (who instanceof Sprite) {
+			((Sprite) who).stop();
+		}
+	}
 
-    @Override
-    public void onScreenStateChanged(int screenState) {
-        super.onScreenStateChanged(screenState);
-        if (screenState == View.SCREEN_STATE_OFF) {
-            if (mSprite != null) {
-                mSprite.stop();
-            }
-        }
-    }
+	@Override
+	public void onWindowFocusChanged(boolean hasWindowFocus) {
+		super.onWindowFocusChanged(hasWindowFocus);
+		if (hasWindowFocus) {
+			if (mSprite != null && getVisibility() == VISIBLE) {
+				mSprite.start();
+			}
+		}
+	}
+
+	@Override
+	public void onScreenStateChanged(int screenState) {
+		super.onScreenStateChanged(screenState);
+		if (screenState == View.SCREEN_STATE_OFF) {
+			if (mSprite != null) {
+				mSprite.stop();
+			}
+		}
+	}
 
 }
