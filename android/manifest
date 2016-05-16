@@ -12,6 +12,7 @@ copyright: Copyright (c) 2016 by
 
 # these should not be edited
 name: spin
+respackage: com.github.ybq.android.spinkit
 moduleid: de.appwerft.spinkit
 guid: e523cca7-72de-4234-8171-9be7e4663fcd
 platform: android

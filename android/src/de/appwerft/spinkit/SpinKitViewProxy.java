@@ -40,6 +40,7 @@ public class SpinKitViewProxy extends TiViewProxy {
 		mView = new TiSpinKitView(this);
 		mView.getLayoutParams().autoFillsHeight = true;
 		mView.getLayoutParams().autoFillsWidth = true;
+		mView.addSpinner(spinnerType,spinnerColor);
 		return mView;
 	}
 
@@ -52,7 +53,5 @@ public class SpinKitViewProxy extends TiViewProxy {
 		if (options.containsKey("color")) {
 			spinnerColor = Color.parseColor(options.getString("color"));
 		}
-		mView.addSpinner(spinnerType,spinnerColor);
-
 	}
 }

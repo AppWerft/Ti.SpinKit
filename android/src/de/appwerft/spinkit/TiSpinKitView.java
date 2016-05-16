@@ -11,38 +11,23 @@ package de.appwerft.spinkit;
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.titanium.proxy.TiViewProxy;
 import org.appcelerator.titanium.view.TiUIView;
-
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.LinearLayout;
-
 import com.github.ybq.android.spinkit.SpinKitView;
-
 //import org.appcelerator.kroll.common.Log;
 import com.github.ybq.android.spinkit.sprite.Sprite;
-import com.github.ybq.android.spinkit.style.ChasingDots;
-import com.github.ybq.android.spinkit.style.Circle;
-import com.github.ybq.android.spinkit.style.CubeGrid;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
-import com.github.ybq.android.spinkit.style.FadingCircle;
-import com.github.ybq.android.spinkit.style.FoldingCube;
-import com.github.ybq.android.spinkit.style.Pulse;
-import com.github.ybq.android.spinkit.style.RotatingCircle;
-import com.github.ybq.android.spinkit.style.RotatingPlane;
-import com.github.ybq.android.spinkit.style.ThreeBounce;
-import com.github.ybq.android.spinkit.style.WanderingCubes;
-import com.github.ybq.android.spinkit.style.Wave;
+import com.github.ybq.android.spinkit.style.*;
 
 public class TiSpinKitView extends TiUIView {
-	SpinKitView spinKitView;
-
+	SpinKitView mSpinKitView;
 	public TiSpinKitView(final TiViewProxy proxy) {
 		super(proxy);
 		LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT,
 				LayoutParams.WRAP_CONTENT);
 		LinearLayout container = new LinearLayout(proxy.getActivity());
 		container.setLayoutParams(lp);
-		spinKitView = new SpinKitView(proxy.getActivity());
-		container.addView(spinKitView);
+		mSpinKitView = new SpinKitView(proxy.getActivity());
+		container.addView(mSpinKitView);
 		setNativeView(container);
 	}
 
@@ -87,7 +72,7 @@ public class TiSpinKitView extends TiUIView {
             break;
 		}
 		drawable.setColor(spinnerColor);
-		spinKitView.setIndeterminateDrawable(drawable);
+		mSpinKitView.setIndeterminateDrawable(drawable);
 	}
 
 	@Override
