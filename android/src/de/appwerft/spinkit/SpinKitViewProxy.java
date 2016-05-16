@@ -28,7 +28,7 @@ public class SpinKitViewProxy extends TiViewProxy {
 	// Standard Debugging variables
 	public int spinnerType = 0 ;
 	public int spinnerColor = Color.parseColor("#ffffff");
-	private TiSpinKitView mView; // instance of TiUIView
+	public SpinnerView mView; 
 
 	// Constructor
 	public SpinKitViewProxy() {
@@ -37,7 +37,7 @@ public class SpinKitViewProxy extends TiViewProxy {
 
 	@Override
 	public TiUIView createView(Activity activity) {
-		mView = new TiSpinKitView(this);
+		mView = new SpinnerView(this);
 		mView.getLayoutParams().autoFillsHeight = true;
 		mView.getLayoutParams().autoFillsWidth = true;
 		mView.addSpinner(spinnerType,spinnerColor);

@@ -18,9 +18,9 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.*;
 
-public class TiSpinKitView extends TiUIView {
+public class SpinnerView extends TiUIView {
 	SpinKitView mSpinKitView;
-	public TiSpinKitView(final TiViewProxy proxy) {
+	public SpinnerView(final TiViewProxy proxy) {
 		super(proxy);
 		LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT,
 				LayoutParams.WRAP_CONTENT);
