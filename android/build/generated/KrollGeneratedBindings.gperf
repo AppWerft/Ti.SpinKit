@@ -1,0 +1,18 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name SpinKitBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "de.appwerft.spinkit.SpinKitModule.h"
+#include "de.appwerft.spinkit.SpinKitViewProxy.h"
+
+
+%}
+struct titanium::bindings::BindEntry;
+%%
+de.appwerft.spinkit.SpinKitModule, ::de::appwerft::spinkit::SpinKitModule::bindProxy, ::de::appwerft::spinkit::SpinKitModule::dispose
+de.appwerft.spinkit.SpinKitViewProxy, ::de::appwerft::spinkit::spinkit::SpinKitViewProxy::bindProxy, ::de::appwerft::spinkit::spinkit::SpinKitViewProxy::dispose
+%%

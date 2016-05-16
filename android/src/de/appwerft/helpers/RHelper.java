@@ -2,78 +2,111 @@ package de.appwerft.helpers;
 
 import org.appcelerator.titanium.util.TiRHelper;
 import org.appcelerator.titanium.util.TiRHelper.ResourceNotFoundException;
+import org.appcelerator.kroll.common.Log;
 
 public class RHelper {
+	public static int getString(String str) {
+		try {
+			return TiRHelper.getApplicationResource("string." + str);
+		} catch (ResourceNotFoundException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 
-  public static int getString(String str){
+	public static int getStyle(String str) {
 		try {
-			return TiRHelper.getApplicationResource("string."+str);
+			return TiRHelper.getApplicationResource("style." + str);
 		} catch (ResourceNotFoundException e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-	
-  public static int getStyleable(String str){
+
+	public static int getAttr(String str) {
 		try {
-			return TiRHelper.getApplicationResource("stylable."+str);
+			return TiRHelper.getApplicationResource("attr." + str);
 		} catch (ResourceNotFoundException e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-  
-	public static int getLayout(String str){
+
+	public static int getStyleable(String str) {
+		Log.d("RHelper", "styleable." + str);
 		try {
-			return TiRHelper.getApplicationResource("layout."+str);
+			return TiRHelper.getApplicationResource("styleable." + str);
 		} catch (ResourceNotFoundException e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-	
-	public static int getId(String str){
+
+	public static int getLayout(String str) {
 		try {
-			return TiRHelper.getApplicationResource("id."+str);
+			return TiRHelper.getApplicationResource("layout." + str);
 		} catch (ResourceNotFoundException e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-	
-	public static int getDrawable(String str){
+
+	public static int getId(String str) {
 		try {
-			return TiRHelper.getApplicationResource("drawable."+str);
+			return TiRHelper.getApplicationResource("id." + str);
 		} catch (ResourceNotFoundException e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-	
-	public static int getColor(String str){
+
+	public static int getDrawable(String str) {
 		try {
-			return TiRHelper.getApplicationResource("color."+str);
+			return TiRHelper.getApplicationResource("drawable." + str);
 		} catch (ResourceNotFoundException e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-	
-	public static int getRaw(String str){
+
+	public static int getColor(String str) {
 		try {
-			return TiRHelper.getApplicationResource("raw."+str);
+			return TiRHelper.getApplicationResource("color." + str);
 		} catch (ResourceNotFoundException e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-	
-	public static int getXML(String str){
+
+	public static int getRaw(String str) {
 		try {
-			return TiRHelper.getApplicationResource("xml."+str);
+			return TiRHelper.getApplicationResource("raw." + str);
 		} catch (ResourceNotFoundException e) {
 			e.printStackTrace();
 			return 0;
 		}
+	}
+
+	public static int getXML(String str) {
+		try {
+			return TiRHelper.getApplicationResource("xml." + str);
+		} catch (ResourceNotFoundException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	public static int getResource(String type, String name) {
+		int res = 0;
+		if (name != null) {
+			int index = name.lastIndexOf(".");
+			if (index > 0) name = name.substring(0, index);
+			try {
+				res = TiRHelper.getApplicationResource(type + "." + name);
+				Log.d("RHelper", "try to get platform/android/res/" + type +"/" + name);	
+			} catch (TiRHelper.ResourceNotFoundException ex) {
+				Log.e("RHelper", type + "." + name + " not found; make sure it's in platform/android/res/" + type);
+			}
+		}
+		return res;
 	}
 }

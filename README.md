@@ -1,7 +1,7 @@
 Ti.SpinKit
 ==========
 
-This is the android version of [Spinkit](https://github.com/ybq/Android-SpinKit). 
+This is the Titanium version of [Spinkit](https://github.com/ybq/Android-SpinKit). 
 
 ![](https://raw.githubusercontent.com/ybq/AndroidSpinKit/master/art/screen.gif)
 

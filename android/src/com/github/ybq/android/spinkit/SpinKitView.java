@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
 import de.appwerft.helpers.RHelper;
+import android.content.res.Resources;
 
 import com.github.ybq.android.spinkit.sprite.Sprite;
 
@@ -30,37 +31,30 @@ public class SpinKitView extends ProgressBar {
 		// original version
 		// this(context, attrs, R.attr.SpinKitViewStyle);
 		// Titanium implementation:
-		this(context, attrs, RHelper.getString("attr.SpinKitViewStyle"));
+		this(context, attrs, RHelper.getResource("attr", "SpinKitViewStyle"));
 	}
 
 	public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr) {
 		// original version :
 		// this(context, attrs, defStyleAttr, R.style.SpinKitView);
 		// Titanium implementation:
-		this(context, attrs, defStyleAttr, RHelper
-				.getString("style.SpinKitView"));
+		this(context, attrs, defStyleAttr, RHelper.getResource("style",
+				"SpinKitView"));
 	}
 
 	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 	public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr,
 			int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
-		// original version
-		// TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SpinKitView, defStyleAttr, defStyleRes);
-		// Titanium implementation:
-		int s[] = { RHelper.getStyleable("SpinKitView") };
+		int s[] = { RHelper.getResource("styleable", "SpinKitView") }; // this will not found
 		TypedArray a = context.obtainStyledAttributes(attrs, s, defStyleAttr,
 				defStyleRes);
-		// mStyle = Style.values()[a.getInt(R.styleable.SpinKitView_SpinKit_Style, 0)];
-	
-		// Titanium implementation:
-		mStyle = Style.values()[a.getInt( RHelper.getStyleable("SpinKitView_SpinKit_Style"),0)];
-		
-		// original version:
-		//mColor = a.getColor(R.styleable.SpinKitView_SpinKit_Color, Color.WHITE);
-
-		// Titanium implementation:
-		mColor = a.getColor(RHelper.getStyleable("SpinKitView_SpinKit_Color"), Color.WHITE);
+		mStyle = Style.values()[a.getInt(
+				RHelper.getResource("styleable", "SpinKitView_SpinKit_Style"),
+				0)];
+		mColor = a.getColor(
+				RHelper.getResource("styleable", "SpinKitView_SpinKit_Color"),
+				Color.WHITE);
 		a.recycle();
 		init();
 		setIndeterminate(true);
