@@ -173,7 +173,7 @@
  /Users/fuerst/Library/android-ndk-macosx/platforms/android-9/arch-x86/usr/include/../include/assert.h \
  /Library/Application\ Support/Titanium/mobilesdk/osx/5.2.0.GENPERM/android/native/include/EventEmitter.h \
  /Library/Application\ Support/Titanium/mobilesdk/osx/5.2.0.GENPERM/android/native/include/NativeObject.h \
- jni/de.appwerft.spinkit.SpinKitViewProxy.h
+ jni/de.appwerft.spinkit.SpinnerViewProxy.h
 
 /Users/fuerst/Library/android-ndk-macosx/platforms/android-9/arch-x86/usr/include/jni.h:
 
@@ -523,4 +523,4 @@ jni/de.appwerft.spinkit.SpinKitModule.h:
 
 /Library/Application\ Support/Titanium/mobilesdk/osx/5.2.0.GENPERM/android/native/include/NativeObject.h:
 
-jni/de.appwerft.spinkit.SpinKitViewProxy.h:
+jni/de.appwerft.spinkit.SpinnerViewProxy.h:

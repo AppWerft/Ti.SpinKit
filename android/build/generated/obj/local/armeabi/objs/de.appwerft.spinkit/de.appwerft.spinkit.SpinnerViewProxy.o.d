@@ -1,6 +1,6 @@
-/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T//fuerst/spinkit-generated/obj/local/armeabi/objs/de.appwerft.spinkit/de.appwerft.spinkit.SpinKitViewProxy.o: \
- jni/de.appwerft.spinkit.SpinKitViewProxy.cpp \
- jni/de.appwerft.spinkit.SpinKitViewProxy.h \
+/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T//fuerst/spinkit-generated/obj/local/armeabi/objs/de.appwerft.spinkit/de.appwerft.spinkit.SpinnerViewProxy.o: \
+ jni/de.appwerft.spinkit.SpinnerViewProxy.cpp \
+ jni/de.appwerft.spinkit.SpinnerViewProxy.h \
  /Users/fuerst/Library/android-ndk-macosx/platforms/android-3/arch-arm/usr/include/jni.h \
  /Users/fuerst/Library/android-ndk-macosx/platforms/android-3/arch-arm/usr/include/sys/cdefs.h \
  /Users/fuerst/Library/android-ndk-macosx/platforms/android-3/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -62,7 +62,7 @@
  /Library/Application\ Support/Titanium/mobilesdk/osx/5.2.0.GENPERM/android/native/include/org.appcelerator.titanium.proxy.TiViewProxy.h \
  /Library/Application\ Support/Titanium/mobilesdk/osx/5.2.0.GENPERM/android/native/include/Proxy.h
 
-jni/de.appwerft.spinkit.SpinKitViewProxy.h:
+jni/de.appwerft.spinkit.SpinnerViewProxy.h:
 
 /Users/fuerst/Library/android-ndk-macosx/platforms/android-3/arch-arm/usr/include/jni.h:
 

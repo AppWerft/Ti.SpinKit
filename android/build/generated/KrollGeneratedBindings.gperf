@@ -7,12 +7,12 @@
 #include <KrollBindings.h>
 
 #include "de.appwerft.spinkit.SpinKitModule.h"
-#include "de.appwerft.spinkit.SpinKitViewProxy.h"
+#include "de.appwerft.spinkit.SpinnerViewProxy.h"
 
 
 %}
 struct titanium::bindings::BindEntry;
 %%
 de.appwerft.spinkit.SpinKitModule, ::de::appwerft::spinkit::SpinKitModule::bindProxy, ::de::appwerft::spinkit::SpinKitModule::dispose
-de.appwerft.spinkit.SpinKitViewProxy, ::de::appwerft::spinkit::spinkit::SpinKitViewProxy::bindProxy, ::de::appwerft::spinkit::spinkit::SpinKitViewProxy::dispose
+de.appwerft.spinkit.SpinnerViewProxy, ::de::appwerft::spinkit::spinkit::SpinnerViewProxy::bindProxy, ::de::appwerft::spinkit::spinkit::SpinnerViewProxy::dispose
 %%

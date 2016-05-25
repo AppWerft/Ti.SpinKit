@@ -7,7 +7,7 @@
 
 /** This code is generated, do not edit by hand. **/
 
-#include "de.appwerft.spinkit.SpinKitViewProxy.h"
+#include "de.appwerft.spinkit.SpinnerViewProxy.h"
 
 #include "AndroidUtil.h"
 #include "EventEmitter.h"
@@ -21,7 +21,7 @@
 
 #include "org.appcelerator.titanium.proxy.TiViewProxy.h"
 
-#define TAG "SpinKitViewProxy"
+#define TAG "SpinnerViewProxy"
 
 using namespace v8;
 
@@ -31,27 +31,27 @@ using namespace v8;
 			namespace spinkit {
 
 
-Persistent<FunctionTemplate> SpinKitViewProxy::proxyTemplate = Persistent<FunctionTemplate>();
-jclass SpinKitViewProxy::javaClass = NULL;
+Persistent<FunctionTemplate> SpinnerViewProxy::proxyTemplate = Persistent<FunctionTemplate>();
+jclass SpinnerViewProxy::javaClass = NULL;
 
-SpinKitViewProxy::SpinKitViewProxy(jobject javaObject) : titanium::Proxy(javaObject)
+SpinnerViewProxy::SpinnerViewProxy(jobject javaObject) : titanium::Proxy(javaObject)
 {
 }
 
-void SpinKitViewProxy::bindProxy(Handle<Object> exports)
+void SpinnerViewProxy::bindProxy(Handle<Object> exports)
 {
 	if (proxyTemplate.IsEmpty()) {
 		getProxyTemplate();
 	}
 
 	// use symbol over string for efficiency
-	Handle<String> nameSymbol = String::NewSymbol("SpinKitView");
+	Handle<String> nameSymbol = String::NewSymbol("SpinnerView");
 
 	Local<Function> proxyConstructor = proxyTemplate->GetFunction();
 	exports->Set(nameSymbol, proxyConstructor);
 }
 
-void SpinKitViewProxy::dispose()
+void SpinnerViewProxy::dispose()
 {
 	LOGD(TAG, "dispose()");
 	if (!proxyTemplate.IsEmpty()) {
@@ -62,7 +62,7 @@ void SpinKitViewProxy::dispose()
 	titanium::TiViewProxy::dispose();
 }
 
-Handle<FunctionTemplate> SpinKitViewProxy::getProxyTemplate()
+Handle<FunctionTemplate> SpinnerViewProxy::getProxyTemplate()
 {
 	if (!proxyTemplate.IsEmpty()) {
 		return proxyTemplate;
@@ -70,11 +70,11 @@ Handle<FunctionTemplate> SpinKitViewProxy::getProxyTemplate()
 
 	LOGD(TAG, "GetProxyTemplate");
 
-	javaClass = titanium::JNIUtil::findClass("de/appwerft/spinkit/SpinKitViewProxy");
+	javaClass = titanium::JNIUtil::findClass("de/appwerft/spinkit/SpinnerViewProxy");
 	HandleScope scope;
 
 	// use symbol over string for efficiency
-	Handle<String> nameSymbol = String::NewSymbol("SpinKitView");
+	Handle<String> nameSymbol = String::NewSymbol("SpinnerView");
 
 	Handle<FunctionTemplate> t = titanium::Proxy::inheritProxyTemplate(
 		titanium::TiViewProxy::getProxyTemplate()
@@ -82,7 +82,7 @@ Handle<FunctionTemplate> SpinKitViewProxy::getProxyTemplate()
 
 	proxyTemplate = Persistent<FunctionTemplate>::New(t);
 	proxyTemplate->Set(titanium::Proxy::inheritSymbol,
-		FunctionTemplate::New(titanium::Proxy::inherit<SpinKitViewProxy>)->GetFunction());
+		FunctionTemplate::New(titanium::Proxy::inherit<SpinnerViewProxy>)->GetFunction());
 
 	titanium::ProxyFactory::registerProxyPair(javaClass, *proxyTemplate);
 

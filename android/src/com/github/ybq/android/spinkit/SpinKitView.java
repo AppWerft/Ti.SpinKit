@@ -1,7 +1,5 @@
 package com.github.ybq.android.spinkit;
 
-import org.appcelerator.titanium.TiApplication;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,69 +10,38 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
 import de.appwerft.helpers.RHelper;
-import android.content.res.Resources;
 
 import com.github.ybq.android.spinkit.sprite.Sprite;
+
+import org.appcelerator.kroll.common.Log;
 
 /**
  * Created by ybq.
  */
-public class SpinKitView extends ProgressBar {
 
+public class SpinKitView extends ProgressBar {
+	private static final String LCAT = "SpinView";
 	private Style mStyle;
 	private int mColor;
 	private Sprite mSprite;
 
 	public SpinKitView(Context context) {
-		this(context, null);
-	}
-
-	public SpinKitView(Context context, AttributeSet attrs) {
-		// original version
-		// this(context, attrs, R.attr.SpinKitViewStyle);
-		// Titanium implementation:
-		this(context, attrs, RHelper.getResource("attr", "SpinKitViewStyle"));
-	}
-
-	public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr) {
-		// original version :
-		// this(context, attrs, defStyleAttr, R.style.SpinKitView);
-		// Titanium implementation:
-		this(context, attrs, defStyleAttr, RHelper.getResource("style",
-				"SpinKitView"));
-	}
-
-	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
-	public SpinKitView(Context context, AttributeSet attrs, int defStyleAttr,
-			int defStyleRes) {
-		super(context, attrs, defStyleAttr, defStyleRes);
-		
-		int s[] =  RHelper.getResourceDeclareStyleableIntArray(context,"SpinKitView") ; // this will not found
-		TypedArray a = context.obtainStyledAttributes(attrs, s, defStyleAttr,
-				defStyleRes);
-		mStyle = Style.values()[a.getInt(
-				RHelper.getResource("styleable", "SpinKitView_SpinKit_Style"),
-				0)];
-		mColor = a.getColor(
-				RHelper.getResource("styleable", "SpinKitView_SpinKit_Color"),
-				Color.WHITE);
-		a.recycle();
-		init();
+		super(context);
 		setIndeterminate(true);
 	}
 
-	private void init() {
+	public void initView(int color, int style) {
+		mColor = color;
+		mStyle = Style.values()[style];
 		Sprite sprite = SpriteFactory.create(mStyle);
 		setIndeterminateDrawable(sprite);
 	}
 
 	@Override
 	public void setIndeterminateDrawable(Drawable d) {
-		if (!(d instanceof Sprite)) {
-			throw new IllegalArgumentException(
-					"this d must be instanceof Sprite");
+		if (d instanceof Sprite) {
+			setIndeterminateDrawable((Sprite) d);
 		}
-		setIndeterminateDrawable((Sprite) d);
 	}
 
 	public void setIndeterminateDrawable(Sprite d) {

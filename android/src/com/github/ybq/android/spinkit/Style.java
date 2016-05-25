@@ -18,8 +18,8 @@ public enum Style {
     FOLDING_CUBE(10),
     ROTATING_CIRCLE(11);
 
-    @SuppressWarnings({"FieldCanBeLocal", "unused"})
-    private int value;
+    @SuppressWarnings("unused")
+	private int value;
 
     Style(int value) {
         this.value = value;

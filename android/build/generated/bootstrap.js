@@ -24,21 +24,21 @@ function moduleBootstrap(moduleBinding) {
 		invocationAPIs.push({ namespace: namespace, api: api });
 	}
 
-		addInvocationAPI(module, "SpinKit", "SpinKit", "createSpinKitView");
+		addInvocationAPI(module, "SpinKit", "SpinKit", "createSpinnerView");
 
 			if (!("__propertiesDefined__" in module)) {		
 		Object.defineProperties(module, {
-			"SpinKitView": {
+			"SpinnerView": {
 				get: function() {
-					var SpinKitView = lazyGet(this, "de.appwerft.spinkit.SpinKitViewProxy", "SpinKitView", "SpinKitView");
-					return SpinKitView;
+					var SpinnerView = lazyGet(this, "de.appwerft.spinkit.SpinnerViewProxy", "SpinnerView", "SpinnerView");
+					return SpinnerView;
 				},
 				configurable: true
 			},
 		
 		});
-		module.constructor.prototype.createSpinKitView = function() {
-			return new module.SpinKitView(arguments);
+		module.constructor.prototype.createSpinnerView = function() {
+			return new module.SpinnerView(arguments);
 		}
 		}
 		module.__propertiesDefined__ = true;

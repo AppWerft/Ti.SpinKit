@@ -10,7 +10,7 @@
 #include <KrollBindings.h>
 
 #include "de.appwerft.spinkit.SpinKitModule.h"
-#include "de.appwerft.spinkit.SpinKitViewProxy.h"
+#include "de.appwerft.spinkit.SpinnerViewProxy.h"
 
 
 #line 14 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/spinkit-generated/KrollGeneratedBindings.gperf"
@@ -54,7 +54,7 @@ SpinKitBindings::lookupGeneratedInit (register const char *str, register unsigne
       {"de.appwerft.spinkit.SpinKitModule", ::de::appwerft::spinkit::SpinKitModule::bindProxy, ::de::appwerft::spinkit::SpinKitModule::dispose},
       {""}, {""},
 #line 17 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/spinkit-generated/KrollGeneratedBindings.gperf"
-      {"de.appwerft.spinkit.SpinKitViewProxy", ::de::appwerft::spinkit::spinkit::SpinKitViewProxy::bindProxy, ::de::appwerft::spinkit::spinkit::SpinKitViewProxy::dispose}
+      {"de.appwerft.spinkit.SpinnerViewProxy", ::de::appwerft::spinkit::spinkit::SpinnerViewProxy::bindProxy, ::de::appwerft::spinkit::spinkit::SpinnerViewProxy::dispose}
     };
 
   if (len <= MAX_WORD_LENGTH && len >= MIN_WORD_LENGTH)

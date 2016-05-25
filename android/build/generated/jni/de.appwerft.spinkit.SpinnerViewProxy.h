@@ -17,10 +17,10 @@
 			namespace spinkit {
 
 
-class SpinKitViewProxy : public titanium::Proxy
+class SpinnerViewProxy : public titanium::Proxy
 {
 public:
-	explicit SpinKitViewProxy(jobject javaObject);
+	explicit SpinnerViewProxy(jobject javaObject);
 
 	static void bindProxy(v8::Handle<v8::Object> exports);
 	static v8::Handle<v8::FunctionTemplate> getProxyTemplate();
