@@ -9,7 +9,7 @@ Usage
 -----
 
 ~~~
-var SKV = require('ti.appwerft.spinkit');
+var SKV = require('de.appwerft.spinkit');
 
 var spinkitView = SKV.createSpinnerView({
     type : SKV.TYPE_ROTATINGPLANE,
