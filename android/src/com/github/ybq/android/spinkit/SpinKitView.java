@@ -1,23 +1,11 @@
 package com.github.ybq.android.spinkit;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
-import de.appwerft.helpers.RHelper;
 
 import com.github.ybq.android.spinkit.sprite.Sprite;
-
-import org.appcelerator.kroll.common.Log;
-
-/**
- * Created by ybq.
- */
 
 public class SpinKitView extends ProgressBar {
 	private static final String LCAT = "SpinView";

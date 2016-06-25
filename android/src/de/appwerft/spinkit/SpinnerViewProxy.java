@@ -16,7 +16,6 @@ import android.widget.LinearLayout.LayoutParams;
 
 //import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
-import org.appcelerator.kroll.common.Log;
 import org.appcelerator.titanium.proxy.TiViewProxy;
 import org.appcelerator.titanium.view.TiUIView;
 
@@ -29,12 +28,10 @@ import android.app.Activity;
 // This proxy can be created by calling Spin.createExample({message: "hello world"})
 @Kroll.proxy(creatableInModule = SpinKitModule.class)
 public class SpinnerViewProxy extends TiViewProxy {
-	private static final String LCAT = "SpinView";
 	public int spinnerStyle = 0;
 	public int spinnerColor = Color.parseColor("#ffffff");
 	private SpinnerView mView;
 
-	// Constructor
 	public SpinnerViewProxy() {
 		super();
 	}
@@ -42,8 +39,6 @@ public class SpinnerViewProxy extends TiViewProxy {
 	@Override
 	public TiUIView createView(Activity activity) {
 		mView = new SpinnerView(this);
-		mView.getLayoutParams().autoFillsHeight = true;
-		mView.getLayoutParams().autoFillsWidth = true;
 		return mView;
 	}
 
@@ -63,12 +58,10 @@ public class SpinnerViewProxy extends TiViewProxy {
 
 		public SpinnerView(final TiViewProxy proxy) {
 			super(proxy);
-			LinearLayout container = new LinearLayout(proxy.getActivity());
-			container.setLayoutParams(new LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 			view = new SpinKitView(proxy.getActivity());
 			view.initView(spinnerColor, spinnerStyle);
-			view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 1000));
+			view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
+					LayoutParams.MATCH_PARENT));
 			view.refreshDrawableState();
 			Sprite sprite = null;
 			switch (spinnerStyle) {
@@ -111,8 +104,7 @@ public class SpinnerViewProxy extends TiViewProxy {
 			}
 			sprite.setColor(spinnerColor);
 			view.setIndeterminateDrawable(sprite);
-			container.addView(view);
-			setNativeView(container);
+			setNativeView(view);
 		}
 
 		@Override

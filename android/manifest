@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.0.7
+version: 1.0.8
 apiversion: 2
 architectures: armeabi armeabi-v7a x86
 description: Spinkit for Titanium without R class
@@ -12,7 +12,6 @@ copyright: Copyright (c) 2016 by Hamburger Appwerft
 
 # these should not be edited
 name: spinkit
-#respackage: com.github.ybq.android.spinkit
 moduleid: de.appwerft.spinkit
 guid: e523cca7-72de-4234-8171-9be7e4663fcd
 platform: android
